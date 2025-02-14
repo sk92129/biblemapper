@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../screens/main_screen.dart';
 import '../screens/reading_plan_screen.dart';
 import '../screens/profile_screen.dart';
+import '../screens/bible_reading.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -20,6 +21,12 @@ final goRouter = GoRouter(
             GoRoute(
               path: '/bible',
               builder: (context, state) => const MainScreen(),
+              routes: [
+                GoRoute(
+                  path: 'reading',
+                  builder: (context, state) => const BibleReadingScreen(),
+                ),
+              ],
             ),
           ],
         ),
