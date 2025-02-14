@@ -1,26 +1,29 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:universalapp/models/bible_book.dart';
 
 class BibleRepository {
-  // Simulated data - in a real app, this would come from an API or database
-  final List<BibleBook> _books = [
-    BibleBook(name: 'Genesis', chapters: 50, testament: 'Old'),
-    BibleBook(name: 'Exodus', chapters: 40, testament: 'Old'),
-    BibleBook(name: 'John', chapters: 21, testament: 'New'),
-    BibleBook(name: 'Matthew', chapters: 28, testament: 'New'),
-    BibleBook(name: 'Mark', chapters: 16, testament: 'New'),
-    BibleBook(name: 'Luke', chapters: 24, testament: 'New'),
-    // Add more books as needed
-  ];
+  static const String _baseUrl = 'https://bible-go-api.rkeplin.com/v1';
 
   Future<List<BibleBook>> getBooks() async {
-    // Simulate API delay
-    await Future.delayed(const Duration(milliseconds: 500));
-    return _books;
+    try {
+      final response = await http.get(Uri.parse('$_baseUrl/books'));
+      
+      if (response.statusCode == 200) {
+        final List<dynamic> jsonList = json.decode(response.body);
+        return jsonList.map((json) => BibleBook.fromJson(json)).toList();
+      } else {
+        print(response);
+        throw Exception('Failed to load bible books');
+      }
+    } catch (e) {
+      throw Exception('Failed to connect to the server: $e');
+    }
   }
 
   Future<List<BibleBook>> searchBooks(String query) async {
-    await Future.delayed(const Duration(milliseconds: 300));
-    return _books
+    final books = await getBooks();
+    return books
         .where((book) =>
             book.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
