@@ -91,7 +91,7 @@ class BibleReadingView extends StatelessWidget {
                                   ),
                                 ),
                                 onSelected: (book) {
-                                  // TODO: Handle book selection
+                                  context.read<BibleBloc>().add(SelectBook(book));
                                 },
                                 itemBuilder: (context) {
                                   if (state is BibleBooksLoaded) {
@@ -135,6 +135,48 @@ class BibleReadingView extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 8),
+                            if (state is BibleBooksLoaded &&
+                                state.selectedBook != null &&
+                                state.chapterCount != null)
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey[300]!),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: PopupMenuButton<int>(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                      vertical: 8,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          'Chapter ${state.selectedChapter ?? 1}',
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const Icon(Icons.arrow_drop_down),
+                                      ],
+                                    ),
+                                  ),
+                                  onSelected: (chapter) {
+                                    context.read<BibleBloc>().add(SelectChapter(chapter));
+                                  },
+                                  itemBuilder: (context) {
+                                    return List.generate(
+                                      state.chapterCount!,
+                                      (index) => PopupMenuItem(
+                                        value: index + 1,
+                                        child: Text('Chapter ${index + 1}'),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            const SizedBox(width: 8),
                             IconButton(
                               icon: const Icon(Icons.format_size),
                               onPressed: () {
@@ -154,56 +196,46 @@ class BibleReadingView extends StatelessWidget {
                               ),
                             ),
                           ),
+
+
+                          const SizedBox(height: 16),
+                          if (state is BibleBooksLoaded && state.chapter != null)
+                            Column(
+                              children: state.chapter!.verses.map((verse) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: RichText(
+                                    text: TextSpan(
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                        height: 1.8,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: '${verse.number} ',
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        TextSpan(text: '${verse.text} '),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            ),
+
                       ],
                     );
                   },
                 ),
-                const SizedBox(height: 16),
-                // Verse number and content
-                RichText(
-                  text: const TextSpan(
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
-                      height: 1.8,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: '1 ',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'In the beginning was the Word, and the Word was with God, and the Word was God. ',
-                      ),
-                      TextSpan(
-                        text: '2 ',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'He was in the beginning with God. ',
-                      ),
-                      TextSpan(
-                        text: '3 ',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'All things were made through him, and without him was not any thing made that was made. ',
-                      ),
-                    ],
-                  ),
-                ),
+
+
+
+
               ],
             ),
           ),

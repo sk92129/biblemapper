@@ -9,6 +9,8 @@ class BibleBloc extends Bloc<BibleEvent, BibleState> {
   BibleBloc(this._repository) : super(BibleInitial()) {
     on<LoadBibleBooks>(_onLoadBibleBooks);
     on<SearchBibleBooks>(_onSearchBibleBooks);
+    on<SelectBook>(_onSelectBook);
+    on<SelectChapter>(_onSelectChapter);
   }
 
   Future<void> _onLoadBibleBooks(
@@ -33,6 +35,49 @@ class BibleBloc extends Bloc<BibleEvent, BibleState> {
       emit(BibleBooksLoaded(books));
     } catch (e) {
       emit(BibleBooksError(e.toString()));
+    }
+  }
+
+  Future<void> _onSelectBook(
+    SelectBook event,
+    Emitter<BibleState> emit,
+  ) async {
+    if (state is BibleBooksLoaded) {
+      final currentState = state as BibleBooksLoaded;
+      try {
+        final chapterCount = await _repository.getChapterCount(event.book.id);
+        emit(currentState.copyWith(
+          selectedBook: event.book,
+          selectedChapter: 1,
+          chapterCount: chapterCount,
+        ));
+        add(SelectChapter(1)); // Load first chapter by default
+      } catch (e) {
+        emit(BibleBooksError(e.toString()));
+      }
+    }
+  }
+
+  Future<void> _onSelectChapter(
+    SelectChapter event,
+    Emitter<BibleState> emit,
+  ) async {
+    if (state is BibleBooksLoaded) {
+      final currentState = state as BibleBooksLoaded;
+      if (currentState.selectedBook != null) {
+        try {
+          final chapter = await _repository.getChapter(
+            currentState.selectedBook!.id,
+            event.chapter,
+          );
+          emit(currentState.copyWith(
+            selectedChapter: event.chapter,
+            chapter: chapter,
+          ));
+        } catch (e) {
+          emit(BibleBooksError(e.toString()));
+        }
+      }
     }
   }
 } 

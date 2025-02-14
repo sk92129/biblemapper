@@ -1,4 +1,5 @@
 import 'package:universalapp/models/bible_book.dart';
+import 'package:universalapp/models/chapter.dart';
 
 abstract class BibleState {}
 
@@ -8,9 +9,34 @@ class BibleBooksLoading extends BibleState {}
 
 class BibleBooksLoaded extends BibleState {
   final List<BibleBook> books;
-  final String? selectedBook;
+  final BibleBook? selectedBook;
+  final int? selectedChapter;
+  final Chapter? chapter;
+  final int? chapterCount;
 
-  BibleBooksLoaded(this.books, {this.selectedBook});
+  BibleBooksLoaded(
+    this.books, {
+    this.selectedBook,
+    this.selectedChapter,
+    this.chapter,
+    this.chapterCount,
+  });
+
+  BibleBooksLoaded copyWith({
+    List<BibleBook>? books,
+    BibleBook? selectedBook,
+    int? selectedChapter,
+    Chapter? chapter,
+    int? chapterCount,
+  }) {
+    return BibleBooksLoaded(
+      books ?? this.books,
+      selectedBook: selectedBook ?? this.selectedBook,
+      selectedChapter: selectedChapter ?? this.selectedChapter,
+      chapter: chapter ?? this.chapter,
+      chapterCount: chapterCount ?? this.chapterCount,
+    );
+  }
 }
 
 class BibleBooksError extends BibleState {
