@@ -71,6 +71,7 @@ class BibleBloc extends Bloc<BibleEvent, BibleState> {
             currentState.selectedBook!.id,
             event.chapter,
           );
+
           emit(currentState.copyWith(
             selectedChapter: event.chapter,
             chapter: chapter,

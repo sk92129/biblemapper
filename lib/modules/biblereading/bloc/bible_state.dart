@@ -39,6 +39,43 @@ class BibleBooksLoaded extends BibleState {
   }
 }
 
+
+class BibleChapterLoaded extends BibleState {
+  final List<BibleBook> books;
+  final BibleBook? selectedBook;
+  final int? selectedChapter;
+  final Chapter? chapter;
+  final int? chapterCount;
+
+  BibleChapterLoaded(
+      this.books, {
+        this.selectedBook,
+        this.selectedChapter,
+        this.chapter,
+        this.chapterCount,
+      });
+
+  BibleChapterLoaded copyWith({
+    List<BibleBook>? books,
+    BibleBook? selectedBook,
+    int? selectedChapter,
+    Chapter? chapter,
+    int? chapterCount,
+  }) {
+    return BibleChapterLoaded(
+      books ?? this.books,
+      selectedBook: selectedBook ?? this.selectedBook,
+      selectedChapter: selectedChapter ?? this.selectedChapter,
+      chapter: chapter ?? this.chapter,
+      chapterCount: chapterCount ?? this.chapterCount,
+    );
+  }
+}
+
+
+
+
+
 class BibleBooksError extends BibleState {
   final String message;
 

@@ -37,8 +37,8 @@ class BibleRepository {
       );
       
       if (response.statusCode == 200) {
-        final Map<String, dynamic> json = jsonDecode(response.body);
-        return Chapter.fromJson(json);
+        final List<dynamic> json = jsonDecode(response.body);
+        return Chapter.fromJson(json, chapterNumber);
       } else {
         print(response);
         throw Exception('Failed to load chapter');
