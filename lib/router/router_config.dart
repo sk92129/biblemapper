@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:universalapp/modules/biblereading/ui/bible_reading.dart';
+import 'package:universalapp/modules/community/ui/community_screen.dart';
+import 'package:universalapp/modules/profile/ui/profile_screen.dart';
 import 'package:universalapp/modules/readingplans/ui/reading_plan_screen.dart';
-import '../screens/main_screen.dart';
-import '../modules/profile/ui/profile_screen.dart';
-import '../modules/biblereading/ui/bible_reading.dart';
+import 'package:universalapp/modules/dashboard/main_screen.dart';
+
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -11,6 +13,41 @@ final goRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: '/bible',
   routes: [
+    GoRoute(
+      path: '/bible',
+      name: 'bible',
+      builder: (context, state) => const MainScreen(),
+      routes: [
+        GoRoute(
+          path: 'reading',
+          builder: (context, state) => const BibleReadingScreen(),
+        ),
+      ],
+    ),
+    GoRoute(
+      path: '/reading-plan',
+      name: 'reading-plan',
+      builder: (context, state) => const ReadingPlanScreen(),
+      routes: [
+      ],
+    ),
+
+    GoRoute(
+      path: '/community',
+      name: 'community',
+      builder: (context, state) => const CommunityScreen(),
+      routes: [
+      ],
+    ),
+    GoRoute(
+      path: '/profile',
+      name: 'profile',
+      builder: (context, state) => const ProfileScreen(),
+      routes: [
+      ],
+    ),
+
+/*
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return ScaffoldWithNavBar(navigationShell: navigationShell);
@@ -38,6 +75,16 @@ final goRouter = GoRouter(
             ),
           ],
         ),
+
+        StatefulShellBranch( // Add new branch for CommunityScreen
+          routes: [
+            GoRoute(
+              path: '/community',
+              builder: (context, state) => const CommunityScreen(),
+            ),
+          ],
+        ),
+
         StatefulShellBranch(
           routes: [
             GoRoute(
@@ -47,11 +94,16 @@ final goRouter = GoRouter(
           ],
         ),
 
+
       ],
     ),
+*/
+
+
   ],
 );
 
+/*
 class ScaffoldWithNavBar extends StatelessWidget {
   const ScaffoldWithNavBar({
     required this.navigationShell,
@@ -80,12 +132,18 @@ class ScaffoldWithNavBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Profile',
+            label: 'Community',
           ),
+          // BottomNavigationBarItem( // Add new BottomNavigationBarItem for Community
+          //   icon: Icon(Icons.people),
+          //   label: 'Community',
+          // ),
         ],
         currentIndex: navigationShell.currentIndex,
         onTap: (index) => navigationShell.goBranch(index),
       ),
     );
   }
-} 
+}
+
+ */

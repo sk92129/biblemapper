@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:universalapp/screens/widgets/appframe_custom.dart';
 
 class ReadingPlanScreen extends StatelessWidget {
   const ReadingPlanScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return
+      AppFrameWidget(
+        child:
+      SafeArea(
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -122,7 +126,11 @@ class ReadingPlanScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )
+      );
+
+
+
   }
 
   Widget _buildPlanCard(String title, String duration, String description) {

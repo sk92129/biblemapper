@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:universalapp/screens/widgets/appframe_custom.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+
+
+    return
+      AppFrameWidget(
+        child:
+
+      SafeArea(
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -100,6 +107,9 @@ class MainScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )
+      );
+
+
   }
 } 
