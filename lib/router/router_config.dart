@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:universalapp/modules/readingplans/ui/reading_plan_screen.dart';
 import '../screens/main_screen.dart';
-import '../screens/reading_plan_screen.dart';
 import '../modules/profile/ui/profile_screen.dart';
 import '../modules/biblereading/ui/bible_reading.dart';
 
@@ -46,6 +46,7 @@ final goRouter = GoRouter(
             ),
           ],
         ),
+
       ],
     ),
   ],

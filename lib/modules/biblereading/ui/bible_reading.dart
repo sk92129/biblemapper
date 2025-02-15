@@ -27,7 +27,7 @@ class BibleReadingView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('John 1'),
+        title: const Text('Bible Reading'),
         actions: [
           IconButton(
             icon: const Icon(Icons.bookmark_border),
@@ -50,8 +50,13 @@ class BibleReadingView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
+
+
                 BlocBuilder<BibleBloc, BibleState>(
                   builder: (context, state) {
+
+
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -76,6 +81,14 @@ class BibleReadingView extends StatelessWidget {
                                           height: 20,
                                           child: CircularProgressIndicator(
                                             strokeWidth: 2,
+                                          ),
+                                        )
+                                      else if (state is BibleBooksLoaded && state.selectedBook != null)
+                                        Text(
+                                          state.selectedBook!.name,
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         )
                                       else
