@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../repositories/bible_repository.dart';
-import 'bible_event.dart';
-import 'bible_state.dart';
+import 'package:universalapp/modules/biblereading/bloc/bible_event.dart';
+import 'package:universalapp/modules/biblereading/bloc/bible_state.dart';
+import '../repository/bible_repository.dart';
+
 
 class BibleBloc extends Bloc<BibleEvent, BibleState> {
   final BibleRepository _repository;

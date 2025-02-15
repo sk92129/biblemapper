@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../blocs/bible/bible_bloc.dart';
-import '../blocs/bible/bible_event.dart';
-import '../blocs/bible/bible_state.dart';
-import '../repositories/bible_repository.dart';
+import 'package:universalapp/modules/biblereading/bloc/bible_bloc.dart';
+import 'package:universalapp/modules/biblereading/bloc/bible_event.dart';
+import 'package:universalapp/modules/biblereading/bloc/bible_state.dart';
+
+import '../repository/bible_repository.dart';
 import '../models/bible_book.dart';
 
 class BibleReadingScreen extends StatelessWidget {
@@ -135,6 +136,8 @@ class BibleReadingView extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(width: 8),
+
+                            
                             if (state is BibleBooksLoaded &&
                                 state.selectedBook != null &&
                                 state.chapterCount != null)
@@ -231,6 +234,8 @@ class BibleReadingView extends StatelessWidget {
                       ],
                     );
                   },
+
+
                 ),
 
 

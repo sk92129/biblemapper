@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:universalapp/models/bible_book.dart';
-import 'package:universalapp/models/chapter.dart';
+import 'package:universalapp/modules/biblereading/models/bible_book.dart';
+import 'package:universalapp/modules/biblereading/models/chapter.dart';
 
 class BibleRepository {
   static const String _baseUrl = 'https://bible-go-api.rkeplin.com/v1';

@@ -1,5 +1,5 @@
-import 'package:universalapp/models/bible_book.dart';
-import 'package:universalapp/models/chapter.dart';
+import 'package:universalapp/modules/biblereading/models/bible_book.dart';
+import 'package:universalapp/modules/biblereading/models/chapter.dart';
 
 abstract class BibleState {}
 

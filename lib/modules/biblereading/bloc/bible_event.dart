@@ -1,4 +1,4 @@
-import 'package:universalapp/models/bible_book.dart';
+import 'package:universalapp/modules/biblereading/models/bible_book.dart';
 
 abstract class BibleEvent {}
 
