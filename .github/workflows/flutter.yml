@@ -22,7 +22,10 @@ jobs:
           
       - name: Install dependencies
         run: flutter pub get
-        
+
+      - name: Generate L10n
+        run: flutter gen-l10n
+
       - name: Build APK
         run: flutter build apk
         
