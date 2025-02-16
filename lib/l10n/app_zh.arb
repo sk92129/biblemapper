@@ -1,0 +1,22 @@
+{
+    "appTitle": "圣经导航",
+    "bible": "圣经",
+    "readingPlan": "阅读计划",
+    "profile": "个人资料",
+    "community": "社区",
+    "communities": "社区列表",
+    "createNewCommunity": "创建新社区",
+    "mostActiveMembers": "最活跃成员",
+    "recentPrayerTopics": "最新祷告主题",
+    "seeAll": "查看全部",
+    "members": "{count} 位成员",
+    "contributions": "{count} 次贡献",
+    "praying": "{count} 人在祷告",
+    "yourReadingPlans": "你的阅读计划",
+    "readingPlanMarketplace": "阅读计划市场",
+    "userProfile": "用户资料",
+    "settingsTitle": "设置",
+    "readingHistory": "阅读历史",
+    "continueReading": "继续阅读",
+    "quizTitle": "每日测验"
+} 

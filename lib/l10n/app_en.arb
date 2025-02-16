@@ -1,0 +1,97 @@
+{
+    "appTitle": "Bible Mapper",
+    "@appTitle": {
+        "description": "The name of the application"
+    },
+    "bible": "Bible",
+    "@bible": {
+        "description": "Bible navigation label"
+    },
+    "readingPlan": "Reading Plan",
+    "@readingPlan": {
+        "description": "Reading Plan navigation label"
+    },
+    "profile": "Profile",
+    "@profile": {
+        "description": "Profile navigation label"
+    },
+    "community": "Community",
+    "@community": {
+        "description": "Community navigation label"
+    },
+    "communities": "Communities",
+    "@communities": {
+        "description": "Communities section title"
+    },
+    "createNewCommunity": "Create New Community",
+    "@createNewCommunity": {
+        "description": "Button to create new community"
+    },
+    "mostActiveMembers": "Most Active Members",
+    "@mostActiveMembers": {
+        "description": "Active members section title"
+    },
+    "recentPrayerTopics": "Recent Prayer Topics",
+    "@recentPrayerTopics": {
+        "description": "Prayer topics section title"
+    },
+    "seeAll": "See All",
+    "@seeAll": {
+        "description": "See all button text"
+    },
+    "members": "{count} members",
+    "@members": {
+        "description": "Number of members in a community",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "contributions": "{count} contributions",
+    "@contributions": {
+        "description": "Number of contributions",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "praying": "{count} praying",
+    "@praying": {
+        "description": "Number of people praying",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "yourReadingPlans": "Your Reading Plans",
+    "@yourReadingPlans": {
+        "description": "Title for the reading plans section"
+    },
+    "readingPlanMarketplace": "Reading Plan Marketplace",
+    "@readingPlanMarketplace": {
+        "description": "Title for the reading plans marketplace"
+    },
+    "userProfile": "User Profile",
+    "@userProfile": {
+        "description": "Title for the user profile screen"
+    },
+    "settingsTitle": "Settings",
+    "@settingsTitle": {
+        "description": "Title for the settings menu item"
+    },
+    "readingHistory": "Reading History",
+    "@readingHistory": {
+        "description": "Title for the reading history menu item"
+    },
+    "continueReading": "Continue Reading",
+    "@continueReading": {
+        "description": "Title for the continue reading section in main screen"
+    },
+    "quizTitle": "Daily Quiz",
+    "@quizTitle": {
+        "description": "Title for the quiz section in main screen"
+    }
+} 

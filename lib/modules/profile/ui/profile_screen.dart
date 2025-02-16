@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universalapp/screens/widgets/appframe_custom.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -21,9 +22,9 @@ class ProfileScreen extends StatelessWidget {
                     child: Icon(Icons.person, size: 50),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'User Profile',
-                    style: TextStyle(
+                  Text(
+                    AppLocalizations.of(context)!.userProfile,
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -32,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
                   Card(
                     child: ListTile(
                       leading: const Icon(Icons.settings),
-                      title: const Text('Settings'),
+                      title: Text(AppLocalizations.of(context)!.settingsTitle),
                       trailing: const Icon(Icons.chevron_right),
                       onTap: () {
                         // TODO: Navigate to settings
@@ -43,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
                   Card(
                     child: ListTile(
                       leading: const Icon(Icons.history),
-                      title: const Text('Reading History'),
+                      title: Text(AppLocalizations.of(context)!.readingHistory),
                       trailing: const Icon(Icons.chevron_right),
                       onTap: () {
                         // TODO: Navigate to reading history

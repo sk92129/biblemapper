@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universalapp/screens/widgets/appframe_custom.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CommunityScreen extends StatelessWidget {
   const CommunityScreen({super.key});
@@ -26,9 +27,9 @@ class CommunityScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text(
-                                'Communities',
-                                style: TextStyle(
+                              Text(
+                                AppLocalizations.of(context)!.communities,
+                                style: const TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -48,17 +49,17 @@ class CommunityScreen extends StatelessWidget {
                               children: [
                                 _buildCommunityTile(
                                   'Bible Study Group',
-                                  '250 members',
+                                  AppLocalizations.of(context)!.members(250),
                                   true,
                                 ),
                                 _buildCommunityTile(
                                   'Prayer Warriors',
-                                  '180 members',
+                                  AppLocalizations.of(context)!.members(180),
                                   false,
                                 ),
                                 _buildCommunityTile(
                                   'Youth Fellowship',
-                                  '120 members',
+                                  AppLocalizations.of(context)!.members(120),
                                   false,
                                 ),
                               ],
@@ -70,7 +71,7 @@ class CommunityScreen extends StatelessWidget {
                               // TODO: Implement create community
                             },
                             icon: const Icon(Icons.add),
-                            label: const Text('Create New Community'),
+                            label: Text(AppLocalizations.of(context)!.createNewCommunity),
                           ),
                         ],
                       ),
@@ -94,17 +95,17 @@ class CommunityScreen extends StatelessWidget {
                           const SizedBox(height: 16),
                           _buildMemberTile(
                             'John Doe',
-                            '500 contributions',
+                            AppLocalizations.of(context)!.contributions(500),
                             Colors.amber,
                           ),
                           _buildMemberTile(
                             'Jane Smith',
-                            '450 contributions',
+                            AppLocalizations.of(context)!.contributions(450),
                             Colors.grey.shade400,
                           ),
                           _buildMemberTile(
                             'Mike Johnson',
-                            '400 contributions',
+                            AppLocalizations.of(context)!.contributions(400),
                             Colors.brown.shade300,
                           ),
                         ],
@@ -246,7 +247,7 @@ class CommunityScreen extends StatelessWidget {
               ),
               const SizedBox(width: 4),
               Text(
-                '$prayerCount praying',
+                prayerCount.toString(),
                 style: TextStyle(
                   color: Colors.grey.shade500,
                   fontSize: 12,

@@ -1,0 +1,22 @@
+{
+    "appTitle": "Mapeador Bíblico",
+    "bible": "Biblia",
+    "readingPlan": "Plan de Lectura",
+    "profile": "Perfil",
+    "community": "Comunidad",
+    "communities": "Comunidades",
+    "createNewCommunity": "Crear Nueva Comunidad",
+    "mostActiveMembers": "Miembros Más Activos",
+    "recentPrayerTopics": "Temas de Oración Recientes",
+    "seeAll": "Ver Todo",
+    "members": "{count} miembros",
+    "contributions": "{count} contribuciones",
+    "praying": "{count} orando",
+    "yourReadingPlans": "Tus Planes de Lectura",
+    "readingPlanMarketplace": "Mercado de planes de lectura",
+    "userProfile": "Perfil de Usuario",
+    "settingsTitle": "Configuración",
+    "readingHistory": "Historial de Lectura",
+    "continueReading": "Continuar Leyendo",
+    "quizTitle": "Quiz Diario"
+} 

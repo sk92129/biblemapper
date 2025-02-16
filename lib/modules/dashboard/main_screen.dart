@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:universalapp/screens/widgets/appframe_custom.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -30,9 +31,9 @@ class MainScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Continue Reading',
-                          style: TextStyle(
+                        Text(
+                          AppLocalizations.of(context)!.continueReading,
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
@@ -68,9 +69,9 @@ class MainScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Daily Quiz',
-                          style: TextStyle(
+                        Text(
+                          AppLocalizations.of(context)!.quizTitle,
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universalapp/screens/widgets/appframe_custom.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ReadingPlanScreen extends StatelessWidget {
   const ReadingPlanScreen({super.key});
@@ -23,9 +24,9 @@ class ReadingPlanScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Your Reading Plans',
-                        style: TextStyle(
+                      Text(
+                        AppLocalizations.of(context)!.yourReadingPlans,
+                        style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
@@ -68,9 +69,9 @@ class ReadingPlanScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          const Text(
-                            'Reading Plan Marketplace',
-                            style: TextStyle(
+                          Text(
+                            AppLocalizations.of(context)!.readingPlanMarketplace,
+                            style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),

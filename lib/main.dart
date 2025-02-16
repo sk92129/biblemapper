@@ -4,14 +4,13 @@ import 'package:universalapp/initial_services.dart';
 import 'package:universalapp/modules/biblereading/bloc/bible_bloc.dart';
 import 'package:universalapp/modules/biblereading/repository/bible_repository.dart';
 import 'router/router_config.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   await initializeServices();
   runApp(const GlobalManager());
 }
-
-
-
 
 class GlobalManager extends StatelessWidget {
   const GlobalManager({super.key});
@@ -19,20 +18,15 @@ class GlobalManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider<BibleBloc>(
-              create: (_) => BibleBloc(
-                BibleRepository()
-              )
-          ),
-        ],
-      child: const MainApp(
-      ),
+      providers: [
+        BlocProvider<BibleBloc>(
+          create: (_) => BibleBloc(BibleRepository()),
+        ),
+      ],
+      child: const MainApp(),
     );
   }
 }
-
-
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
@@ -66,12 +60,22 @@ class _MainAppState extends State<MainApp> {
       debugShowCheckedModeBanner: false,
       title: "Bible Mapper",
       routerConfig: goRouter,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('es'), // Spanish
+        Locale('zh'), // Chinese
+        Locale('ko'), // Korean
+        Locale('de'), // German
+      ],
     );
-
-
-      }
-
   }
+}
 
 /*
 

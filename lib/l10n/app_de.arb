@@ -1,0 +1,22 @@
+{
+    "appTitle": "Bibel-Mapper",
+    "bible": "Bibel",
+    "readingPlan": "Leseplan",
+    "profile": "Profil",
+    "community": "Gemeinschaft",
+    "communities": "Gemeinschaften",
+    "createNewCommunity": "Neue Gemeinschaft erstellen",
+    "mostActiveMembers": "Aktivste Mitglieder",
+    "recentPrayerTopics": "Aktuelle Gebetsanliegen",
+    "seeAll": "Alle anzeigen",
+    "members": "{count} Mitglieder",
+    "contributions": "{count} Beiträge",
+    "praying": "{count} beten",
+    "yourReadingPlans": "Deine Lesepläne",
+    "readingPlanMarketplace": "Leseplan-Marktplatz",
+    "userProfile": "Benutzerprofil",
+    "settingsTitle": "Einstellungen",
+    "readingHistory": "Lesechronik",
+    "continueReading": "Weiterlesen",
+    "quizTitle": "Tagesquiz"
+} 
