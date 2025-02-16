@@ -93,5 +93,10 @@
     "quizTitle": "Daily Quiz",
     "@quizTitle": {
         "description": "Title for the quiz section in main screen"
+    },
+    "homeNav": "Home",
+    "@homeNav": {
+        "description": "Navigation label for home screen"
+
     }
 } 
