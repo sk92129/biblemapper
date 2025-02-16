@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -34,30 +33,30 @@ class _AppFrameWidgetState extends State<AppFrameWidget> {
         },
         indicatorColor: Colors.amber,
         selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
+        destinations: <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            selectedIcon:  const Icon(Icons.home),
+            icon:  const Icon(Icons.home_outlined),
+            label: AppLocalizations.of(context)!.homeNav,
           ),
           NavigationDestination(
-            icon: Badge(child: Icon(Icons.calendar_today)),
-            label: 'Bible Plans',
+            icon:  const Badge(child: Icon(Icons.calendar_today)),
+            label: AppLocalizations.of(context)!.biblePlansNav,
           ),
-          NavigationDestination(
-            icon: Badge(label: Text('2'), child: Icon(Icons.people)),
-            label: 'Community',
+           NavigationDestination(
+            icon:  Badge(label: Text('2'), child: Icon(Icons.people)),
+            label: AppLocalizations.of(context)!.communityNav,
           ),
-          NavigationDestination(
-            icon: Badge(label: Text('2'), child: Icon(Icons.person)),
-            label: 'Profile',
+           NavigationDestination(
+            icon:  Badge(label: Text('2'), child: Icon(Icons.person)),
+            label: AppLocalizations.of(context)!.profileNav,
           ),
         ],
       ),
       appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Bible Mapper'),
-          ),
+          title: Text(AppLocalizations.of(context)!.appTitle),
+      ),
 
         body: widget.child,
 

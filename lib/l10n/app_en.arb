@@ -97,6 +97,17 @@
     "homeNav": "Home",
     "@homeNav": {
         "description": "Navigation label for home screen"
-
+    },
+    "biblePlansNav": "Bible Plans",
+    "@biblePlansNav": {
+        "description": "Navigation label for bible plans"
+    },
+    "communityNav": "Community",
+    "@communityNav": {
+        "description": "Navigation label for community"
+    },
+    "profileNav": "Profile",
+    "@profileNav": {
+        "description": "Navigation label for profile"
     }
 } 

@@ -19,5 +19,8 @@
     "readingHistory": "Historial de Lectura",
     "continueReading": "Continuar Leyendo",
     "quizTitle": "Quiz Diario",
-    "homeNav": "Inicio"
+    "homeNav": "Inicio",
+    "biblePlansNav": "Planes Bíblicos",
+    "communityNav": "Comunidad",
+    "profileNav": "Perfil"
 } 
