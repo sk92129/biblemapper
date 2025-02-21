@@ -4,6 +4,12 @@ A new Flutter project.
 
 ## Getting Started
 
+### to build
+
+flutter pub get
+flutter gen-l10n
+
+
 mac desktop version
 
 
