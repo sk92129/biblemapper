@@ -42,15 +42,7 @@ class _MainAppState extends State<MainApp> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      /*
-      try {
-        FirebaseMessaging.onMessage.listen((RemoteMessage message) {});
-        _setupInteractedMessage(context);
-      } catch (e) {
-        LoggingManager().logDebug('$e');
-      }
 
-       */
     });
   }
 
@@ -60,6 +52,41 @@ class _MainAppState extends State<MainApp> {
       debugShowCheckedModeBanner: false,
       title: "Bible Mapper",
       routerConfig: goRouter,
+      
+      // Add accessibility features
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.light,
+        ).copyWith(
+          // Ensure sufficient color contrast (WCAG 2.1 compliant)
+          primary: Colors.blue.shade700,
+          secondary: Colors.teal.shade700,
+        ),
+        textTheme: Theme.of(context).textTheme.copyWith(
+          bodyLarge: const TextStyle(fontSize: 16.0),
+          bodyMedium: const TextStyle(fontSize: 14.0),
+          titleMedium: const TextStyle(fontSize: 16.0),
+        ),
+      ),
+      
+      // Enable text scaling for accessibility
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaleFactor: MediaQuery.of(context).textScaleFactor.clamp(1.0, 2.0),
+          ),
+          child: child!,
+        );
+      },
+      
+      // Add semantics configuration
+      showSemanticsDebugger: false, // Set to true during development to visualize semantics
+      checkerboardRasterCacheImages: false,
+      checkerboardOffscreenLayers: false,
+      
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
