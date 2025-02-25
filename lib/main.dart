@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:universalapp/initial_services.dart';
 import 'package:universalapp/modules/biblereading/bloc/bible_bloc.dart';
 import 'package:universalapp/modules/biblereading/repository/bible_repository.dart';
 import 'router/router_config.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter/foundation.dart';
+
+// Change the navigatorKey to be a router key
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await initializeServices();
   runApp(const GlobalManager());
 }
@@ -51,7 +58,47 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: "Bible Mapper",
-      routerConfig: goRouter,
+      routerConfig: GoRouter(
+        navigatorKey: _rootNavigatorKey,
+        initialLocation: '/bible',  // Add initial location
+        routes: [
+          // Copy routes from router_config.dart
+          GoRoute(
+            path: '/bible',
+            name: 'bible',
+            builder: (context, state) => const MainScreen(),
+            routes: [
+              GoRoute(
+                path: 'reading',
+                builder: (context, state) => const BibleReadingScreen(),
+              ),
+            ],
+          ),
+          GoRoute(
+            path: '/reading-plan',
+            name: 'reading-plan',
+            builder: (context, state) => const ReadingPlanScreen(),
+          ),
+          GoRoute(
+            path: '/community',
+            name: 'community',
+            builder: (context, state) => const CommunityScreen(),
+          ),
+          GoRoute(
+            path: '/profile',
+            name: 'profile',
+            builder: (context, state) => const ProfileScreen(),
+          ),
+        ],
+      ),
+      
+      // Add test-friendly semantic labels
+      shortcuts: {
+        ...WidgetsApp.defaultShortcuts,
+        if (kDebugMode) 
+          const SingleActivator(LogicalKeyboardKey.escape): 
+              VoidCallbackIntent(() => _rootNavigatorKey.currentState?.pop()),
+      },
       
       // Add accessibility features
       theme: ThemeData(
@@ -78,7 +125,11 @@ class _MainAppState extends State<MainApp> {
           data: MediaQuery.of(context).copyWith(
             textScaleFactor: MediaQuery.of(context).textScaleFactor.clamp(1.0, 2.0),
           ),
-          child: child!,
+          child: Semantics(
+            container: true,
+            label: 'Bible Mapper Application',
+            child: child!,
+          ),
         );
       },
       

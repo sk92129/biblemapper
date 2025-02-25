@@ -6,12 +6,14 @@ import 'package:universalapp/modules/profile/ui/profile_screen.dart';
 import 'package:universalapp/modules/readingplans/ui/reading_plan_screen.dart';
 import 'package:universalapp/modules/dashboard/main_screen.dart';
 
-
-final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
+// Export screens for use in main.dart
+export 'package:universalapp/modules/biblereading/ui/bible_reading.dart';
+export 'package:universalapp/modules/community/ui/community_screen.dart';
+export 'package:universalapp/modules/profile/ui/profile_screen.dart';
+export 'package:universalapp/modules/readingplans/ui/reading_plan_screen.dart';
+export 'package:universalapp/modules/dashboard/main_screen.dart';
 
 final goRouter = GoRouter(
-  navigatorKey: _rootNavigatorKey,
-  initialLocation: '/bible',
   routes: [
     GoRoute(
       path: '/bible',
