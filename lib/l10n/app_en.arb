@@ -109,5 +109,13 @@
     "profileNav": "Profile",
     "@profileNav": {
         "description": "Navigation label for profile"
+    },
+    "version": "Version",
+    "@version": {
+        "description": "Label for app version"
+    },
+    "build": "Build",
+    "@build": {
+        "description": "Label for app build number"
     }
 } 

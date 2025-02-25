@@ -22,5 +22,7 @@
     "homeNav": "홈",
     "biblePlansNav": "성경 계획",
     "communityNav": "커뮤니티",
-    "profileNav": "프로필"
+    "profileNav": "프로필",
+    "version": "버전",
+    "build": "빌드"
 } 

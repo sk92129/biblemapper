@@ -22,5 +22,7 @@
     "homeNav": "Inicio",
     "biblePlansNav": "Planes Bíblicos",
     "communityNav": "Comunidad",
-    "profileNav": "Perfil"
+    "profileNav": "Perfil",
+    "version": "Versión",
+    "build": "Compilación"
 } 

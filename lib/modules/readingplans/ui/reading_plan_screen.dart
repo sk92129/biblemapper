@@ -7,136 +7,151 @@ class ReadingPlanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-      AppFrameWidget(
-        child:
-      SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Recent Reading Plans Card
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        AppLocalizations.of(context)!.yourReadingPlans,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      ListTile(
-                        leading: const CircleAvatar(
-                          child: Icon(Icons.book),
-                        ),
-                        title: const Text('30 Days in Psalms'),
-                        subtitle: const Text('Progress: 5/30 days'),
-                        trailing: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Continue'),
-                        ),
-                      ),
-                      const Divider(),
-                      ListTile(
-                        leading: const CircleAvatar(
-                          child: Icon(Icons.book),
-                        ),
-                        title: const Text('Life of Jesus'),
-                        subtitle: const Text('Progress: 12/40 days'),
-                        trailing: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Continue'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 16),
-              // Marketplace Card
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            AppLocalizations.of(context)!.readingPlanMarketplace,
-                            style: const TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const Spacer(),
-                          IconButton(
-                            icon: const Icon(Icons.search),
-                            onPressed: () {
-                              // TODO: Implement search functionality
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search reading plans...',
-                          prefixIcon: const Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        height: 200,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
+    return AppFrameWidget(
+      child: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Recent Reading Plans Card
+                    Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            _buildPlanCard(
-                              'Bible in One Year',
-                              '365 days',
-                              'A comprehensive journey through the entire Bible',
+                            Text(
+                              AppLocalizations.of(context)!.yourReadingPlans,
+                              style: const TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            _buildPlanCard(
-                              'Wisdom Literature',
-                              '90 days',
-                              'Explore Proverbs, Ecclesiastes, and Job',
+                            const SizedBox(height: 16),
+                            ListTile(
+                              leading: const CircleAvatar(
+                                child: Icon(Icons.book),
+                              ),
+                              title: const Text('30 Days in Psalms'),
+                              subtitle: const Text('Progress: 5/30 days'),
+                              trailing: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text('Continue'),
+                              ),
                             ),
-                            _buildPlanCard(
-                              'Prayer Journey',
-                              '21 days',
-                              'Daily readings focused on prayer',
+                            const Divider(),
+                            ListTile(
+                              leading: const CircleAvatar(
+                                child: Icon(Icons.book),
+                              ),
+                              title: const Text('Life of Jesus'),
+                              subtitle: const Text('Progress: 12/40 days'),
+                              trailing: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text('Continue'),
+                              ),
                             ),
                           ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 16),
+                    // Marketplace Card
+                    Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Wrap(
+                              alignment: WrapAlignment.spaceBetween,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: constraints.maxWidth - 100, // Account for padding and icon
+                                  child: Text(
+                                    AppLocalizations.of(context)!.readingPlanMarketplace,
+                                    style: const TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.search),
+                                  onPressed: () {
+                                    // TODO: Implement search functionality
+                                  },
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Search reading plans...',
+                                prefixIcon: const Icon(Icons.search),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            SizedBox(
+                              height: 200,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 3,
+                                itemBuilder: (context, index) {
+                                  final plans = [
+                                    {
+                                      'title': 'Bible in One Year',
+                                      'duration': '365 days',
+                                      'description': 'A comprehensive journey through the entire Bible'
+                                    },
+                                    {
+                                      'title': 'Wisdom Literature',
+                                      'duration': '90 days',
+                                      'description': 'Explore Proverbs, Ecclesiastes, and Job'
+                                    },
+                                    {
+                                      'title': 'Prayer Journey',
+                                      'duration': '21 days',
+                                      'description': 'Daily readings focused on prayer'
+                                    },
+                                  ];
+                                  return _buildPlanCard(
+                                    plans[index]['title']!,
+                                    plans[index]['duration']!,
+                                    plans[index]['description']!,
+                                    constraints.maxWidth,
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            );
+          },
         ),
       ),
-    )
-      );
-
-
-
+    );
   }
 
-  Widget _buildPlanCard(String title, String duration, String description) {
+  Widget _buildPlanCard(String title, String duration, String description, double screenWidth) {
+    // Calculate card width based on screen size
+    double cardWidth = screenWidth < 400 ? screenWidth * 0.7 : 300;
+    
     return Container(
-      width: 200,
+      width: cardWidth,
       margin: const EdgeInsets.only(right: 16),
       child: Card(
         elevation: 4,
@@ -151,6 +166,8 @@ class ReadingPlanScreen extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 8),
               Text(
@@ -160,16 +177,21 @@ class ReadingPlanScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              Text(
-                description,
-                style: const TextStyle(fontSize: 14),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+              Expanded(
+                child: Text(
+                  description,
+                  style: const TextStyle(fontSize: 14),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-              const Spacer(),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Start Plan'),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Start Plan'),
+                ),
               ),
             ],
           ),
