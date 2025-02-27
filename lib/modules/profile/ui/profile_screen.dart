@@ -21,6 +21,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Future<void> _loadVersionInfo() async {
+    
     final packageInfo = await PackageInfo.fromPlatform();
     setState(() {
       version = packageInfo.version;

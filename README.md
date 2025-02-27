@@ -9,6 +9,10 @@ A new Flutter project.
 flutter pub get
 flutter gen-l10n
 
+flutter build web --release
+
+firebase deploy
+
 
 mac desktop version
 
