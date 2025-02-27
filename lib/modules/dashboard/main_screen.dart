@@ -37,6 +37,7 @@ class MainScreen extends StatelessWidget {
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
+                          semanticsLabel: AppLocalizations.of(context)!.continueReadingSemantics,
                         ),
                         const SizedBox(height: 8),
                         Text(

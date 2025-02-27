@@ -24,5 +24,6 @@
     "communityNav": "커뮤니티",
     "profileNav": "프로필",
     "version": "버전",
-    "build": "빌드"
+    "build": "빌드",
+    "continueReadingSemantics": "성경 읽기를 중단한 부분으로 돌아가려면 여기를 탭하세요"
 } 

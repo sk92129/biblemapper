@@ -90,6 +90,10 @@
     "@continueReading": {
         "description": "Title for the continue reading section in main screen"
     },
+    "continueReadingSemantics": "If you want to jump back to where you left off reading the Bible, tap here",
+    "@continueReadingSemantics": {
+        "description": "Accessibility description for the continue reading button"
+    },
     "quizTitle": "Daily Quiz",
     "@quizTitle": {
         "description": "Title for the quiz section in main screen"
