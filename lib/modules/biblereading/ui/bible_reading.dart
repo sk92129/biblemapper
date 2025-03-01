@@ -202,16 +202,36 @@ class BibleReadingView extends StatelessWidget {
                           ],
                         ),
                         if (state is BibleBooksError)
-                          Padding(
+                          Container(
                             padding: const EdgeInsets.only(top: 8),
-                            child: Text(
-                              state.message,
-                              style: const TextStyle(
-                                color: Colors.red,
-                                fontSize: 14,
+                            child:  Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: 
+                            Column(
+                            children: [
+                              const Text(
+                                'Error loading Bible books - likely CORS issue',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
+                              const SizedBox(height: 8),
+                              Text(
+                                state.message,
+                                style: const TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
                           ),
+
+
+                          ),
+                          ),
+                         
 
 
                           const SizedBox(height: 16),
