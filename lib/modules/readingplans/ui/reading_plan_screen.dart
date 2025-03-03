@@ -132,14 +132,76 @@ class ReadingPlanScreen extends StatelessWidget {
                                 },
                               ),
                             ),
+                    const SizedBox(height: 16),
+                    // Featured Reading Plans Card
+                    Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Featured Reading Plans",
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            SizedBox(
+                              height: 120,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  _buildFeaturedPlanButton(
+                                    'assets/icons/psalm.jpg',
+                                    'Psalms',
+                                    Colors.blue.shade100,
+                                    () {
+                                      debugPrint('Psalms plan tapped');
+                                    },
+                                  ),
+                                  _buildFeaturedPlanButton(
+                                    'assets/icons/gospel.jpg',
+                                    'Gospels',
+                                    Colors.purple.shade100,
+                                    () {
+                                      debugPrint('Gospels plan tapped');
+                                    },
+                                  ),
+                                  _buildFeaturedPlanButton(
+                                    'assets/icons/paul.jpg',
+                                    'Paul\'s Letters',
+                                    Colors.orange.shade100,
+                                    () {
+                                      debugPrint('Paul\'s Letters plan tapped');
+                                    },
+                                  ),
+                                  _buildFeaturedPlanButton(
+                                    'assets/icons/prophets.jpg',
+                                    'Prophets',
+                                    Colors.red.shade100,
+                                    () {
+                                      debugPrint('Prophets plan tapped');
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ),
-                  ],
+                    const SizedBox(height: 16),
+                  ]
+                ),
+              ),
+            )
+                  ]
                 ),
               ),
             );
+
           },
         ),
       ),
@@ -198,5 +260,85 @@ class ReadingPlanScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildFeaturedPlanButton(
+    String iconPath,
+    String label,
+    Color backgroundColor,
+    VoidCallback onTap,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 16.0),
+      child: Column(
+        children: [
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: BorderRadius.circular(16),
+              child: Ink(
+                decoration: BoxDecoration(
+                  color: backgroundColor,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 4,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  padding: const EdgeInsets.all(16.0),
+                  child: Image.asset(
+                    iconPath,
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Icon(
+                        _getIconForPath(iconPath),
+                        size: 40,
+                        color: backgroundColor.withBlue(backgroundColor.blue - 50),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  IconData _getIconForPath(String path) {
+    // Since we don't have actual assets yet, return appropriate icons
+    switch (path) {
+      case 'assets/icons/psalms.png':
+        return Icons.music_note;
+      case 'assets/icons/wisdom.png':
+        return Icons.lightbulb;
+      case 'assets/icons/gospel.png':
+        return Icons.book;
+      case 'assets/icons/paul.png':
+        return Icons.mail;
+      case 'assets/icons/prophets.png':
+        return Icons.record_voice_over;
+      default:
+        return Icons.book;
+    }
   }
 } 
