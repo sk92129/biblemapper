@@ -121,5 +121,9 @@
     "build": "Build",
     "@build": {
         "description": "Label for app build number"
+    },
+    "termsAndConditions": "Terms and Conditions",
+    "@termsAndConditions": {
+        "description": "Link to terms and conditions"
     }
 } 

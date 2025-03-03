@@ -201,6 +201,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 24),
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      // TODO: Navigate to terms and conditions
+                    },
+                    child: Text(
+                      AppLocalizations.of(context)!.termsAndConditions,
+                      style: TextStyle(
+                        color: Colors.grey[600],
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
               ],
             ),
           ),
