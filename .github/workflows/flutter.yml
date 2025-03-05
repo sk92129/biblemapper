@@ -26,13 +26,23 @@ jobs:
       - name: Generate L10n
         run: flutter gen-l10n
 
+      - name: update the version number
+        run: dart update_build_number.dart
 
       - name: Build web
         run: flutter build web --release
 
       - name: Build APK
         run: flutter build apk
-        
+
+      - name: Setup Firebase CLI
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_PATH: ./build/web
+
 #      - name: Upload APK
 #        uses: actions/upload-artifact@v3
 #        with:
