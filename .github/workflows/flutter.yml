@@ -26,6 +26,10 @@ jobs:
       - name: Generate L10n
         run: flutter gen-l10n
 
+
+      - name: Build web
+        run: flutter build web --release
+
       - name: Build APK
         run: flutter build apk
         
