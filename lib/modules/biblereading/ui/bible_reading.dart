@@ -44,7 +44,10 @@ class BibleReadingView extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: Scrollbar ( 
+          thumbVisibility: true, // Always show the scrollbar
+          thickness: 8.0,
+          child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -278,6 +281,7 @@ class BibleReadingView extends StatelessWidget {
             ),
           ),
         ),
+        )
       ),
     );
   }
