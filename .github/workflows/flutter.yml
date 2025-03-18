@@ -24,7 +24,7 @@ jobs:
         run: flutter pub get
 
       - name: Generate L10n
-        run: flutter gen-l10n
+        run: dart gen-l10n
 
       - name: update the version number
         run: dart update_build_number.dart
