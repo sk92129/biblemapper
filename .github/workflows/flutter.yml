@@ -21,10 +21,10 @@ jobs:
           cache: true
           
       - name: Install dependencies
-        run: flutter pub get
+        run: dart pub get
 
       - name: Generate L10n
-        run: dart gen-l10n
+        run: flutter gen-l10n
 
       - name: update the version number
         run: dart update_build_number.dart
