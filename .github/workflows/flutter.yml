@@ -30,7 +30,7 @@ jobs:
         run: dart update_build_number.dart
 
       - name: Build web
-        run: flutter build web --release
+        run: flutter build web --release --wasm
 
       - name: Build APK
         run: flutter build apk
