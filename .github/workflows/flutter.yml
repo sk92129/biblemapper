@@ -5,6 +5,9 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  schedule:
+    # Runs at 6:00 PM PST (which is 02:00 UTC the next day)
+    - cron: '0 2 * * *'
 
 jobs:
   build:
