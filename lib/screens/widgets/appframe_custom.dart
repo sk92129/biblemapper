@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:universalapp/screens/widgets/skip_to_content.dart';
+
 
 class AppFrameWidget extends StatefulWidget {
   const AppFrameWidget(
@@ -121,7 +124,12 @@ class _AppFrameWidgetState extends State<AppFrameWidget> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(AppLocalizations.of(context)!.appTitle),
       ),
-      body: widget.child,
+      body: Stack(
+        children: [
+          widget.child,
+          if (kIsWeb) const SkipToContent(),
+        ],
+      ),
     );
   }
 }
